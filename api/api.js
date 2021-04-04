@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use('/api/admin', routes.adminRoutes);
+app.use('/api/notes', routes.notesRoutes);
 
 app.listen(PORT, () => {
   console.log(`API launched on port '${PORT}'`);
