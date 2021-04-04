@@ -1,4 +1,7 @@
 const express = require('express');
+require('dotenv').config(); // setting up environment variables
+
+const db = require('./db');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -8,5 +11,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`API is started working on ${PORT}`);
+  console.log(`API launched on port '${PORT}'`);
 });
