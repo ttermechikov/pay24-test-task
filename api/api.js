@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({ exposedHeaders: '*' }));
 app.use('/api/admin', routes.adminRoutes);
 app.use('/api/notes', routes.notesRoutes);
 
