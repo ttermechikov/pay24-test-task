@@ -13,7 +13,7 @@ const ALLOWED_PROPS = [
   'address',
 ];
 
-router.post('/', authenticate, (req, res) => {
+router.post('/', (req, res) => {
   const { ...note } = pick(req.body, [
     'inn',
     'firstName',
@@ -35,6 +35,7 @@ router.post('/', authenticate, (req, res) => {
 router.get('/', authenticate, async (req, res) => {
   try {
     const notes = await db.models.note.findAll({});
+
     const filteredNotes = notes.map((n) => {
       return pick(n.dataValues, ALLOWED_PROPS);
     });
